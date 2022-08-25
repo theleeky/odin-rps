@@ -1,0 +1,69 @@
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #F9FAF8;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.header,
+.footer {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    gap: 10px;
+}
+
+.main {
+    display: flex;
+    padding: 40px;
+    justify-content: center;
+}
+
+.box{
+    background-color: blueviolet;
+    width: 600px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blueviolet;
+    padding: 5px 10px;
+    border-radius: 8px;
+    justify-content: space-evenly;
+}
+
+.box h3 {
+    align-self: center;
+}
+
+.box button {
+    width: 100px;
+    align-self: center;
+    border: 1px whitesmoke;
+    border-radius: 4px;
+}
+
+.box #reset {
+    border-radius: 2px;
+}
+
+.decision {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.score {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer {
+    justify-self: end;
+}
