@@ -31,7 +31,7 @@ buttons.forEach((button) => {
         } else {
             
             // play a round of rps
-
+            playRound(button.id, getComputerChoice)
         }
     });
 });
