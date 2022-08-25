@@ -1,8 +1,10 @@
+// random selection of rps for computer
 function getComputerChoice() {
     const rps = ["Rock", "Scissors", "Paper"]
     return rps[Math.floor(Math.random() * 3)];
 }
 
+// plays a round of rock paper and scissors after player selects rps
 function playRound(playerSelection, computerSelection) {
     const player = String(playerSelection).toLowerCase();
     const comp = String(computerSelection).toLowerCase();
@@ -20,34 +22,16 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-
-    let playerCount = 0;
-    let compCount = 0;
-
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Rock, Paper or Scissors? ");
-        let computerSelection = getComputerChoice();
-
-        const round = playRound(playerSelection, computerSelection)
-        if (round == 1){
-            console.log("You won round " + (i+1))
-            playerCount++;
-        } else if (round == 0) {
-            console.log("Computer won round " + (i+1))
-            compCount++;
+// waiting for click event from user on any button
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (button.id === 'reset') {
+            
         } else {
-            console.log("Round " + (i+1) + " was a draw")
+            
+            // play a round of rps
+
         }
-    }
-
-    if (playerCount > compCount) {
-        console.log("You won the game of Rock Paper Scissors.")
-    } else if (compCount > playerCount) {
-        console.log("The computer won the game unfortunately.")
-    } else {
-        console.log("The game was a tie")
-    }
-}
-
-//game()
+    });
+});
