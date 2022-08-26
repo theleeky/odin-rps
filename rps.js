@@ -25,9 +25,10 @@ function playRound(playerSelection, computerSelection) {
 // main function where the game will be played
 function main() {
     
+   
+
     // keeping a track of the score
     let player = 0;
-    
     let comp = 0;
     const playerScore = document.querySelector('#playerScore');
     const compScore = document.querySelector('#compScore');
@@ -45,8 +46,9 @@ function main() {
         button.addEventListener('click', () => {
             if (button.id === 'reset') {
                 // restart game
-                return main();
-            } else {
+                location.reload();
+                return false;
+            } else if (player < 5 && comp < 5) {
                 // play a round of rps
                 let computerSelection = getComputerChoice();
                 switch (playRound(button.id, computerSelection)) {
@@ -63,16 +65,20 @@ function main() {
                     case 2: // draw
                         div.textContent = "This round was a draw"
                         break;
-                }
+                } 
                 // append announcement into document
                 const box = document.querySelector('.box');
                 box.insertBefore(div, document.querySelector('#reset'))
-
                 
+                //check if there is a winner
+                if (player === 5) {
+                    div.textContent = "You won!!"
+                } else if (comp === 5) {
+                    div.textContent = "You lost."
+                }
             }
         });
     });
-    
 };
 
 main()
