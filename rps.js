@@ -34,6 +34,9 @@ function main() {
     playerScore.textContent = player;
     compScore.textContent = comp;
 
+    // create element for which will be updated each time a button is pressed
+    const div = document.createElement('div');
+    div.style.cssText = "align-self: center;"
 
     
     // waiting for click event from user on any button
@@ -50,21 +53,22 @@ function main() {
                     case 0: // computer wins
                         comp += 1;
                         compScore.textContent = comp;
-                        console.log(button.id + ' player');
-                        console.log(computerSelection + ' comp');
+                        div.textContent = "The computer won this round."
                         break;
                     case 1: // player wins
                         player += 1;
                         playerScore.textContent = player;
-                        console.log(button.id + ' player');
-                        console.log(computerSelection + ' comp');
+                        div.textContent = "You won this round!"
                         break;
                     case 2: // draw
-                        console.log(button.id + ' player');
-                        console.log(computerSelection + ' comp');
+                        div.textContent = "This round was a draw"
                         break;
                 }
+                // append announcement into document
+                const box = document.querySelector('.box');
+                box.insertBefore(div, document.querySelector('#reset'))
 
+                
             }
         });
     });
