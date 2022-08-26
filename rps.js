@@ -26,10 +26,14 @@ function playRound(playerSelection, computerSelection) {
 function main() {
     
     // keeping a track of the score
+    let player = 0;
+    
+    let comp = 0;
     const playerScore = document.querySelector('#playerScore');
     const compScore = document.querySelector('#compScore');
-    playerScore.textContent = 0;
-    compScore.textContent = 0;
+    playerScore.textContent = player;
+    compScore.textContent = comp;
+
 
     
     // waiting for click event from user on any button
@@ -41,15 +45,30 @@ function main() {
                 return main();
             } else {
                 // play a round of rps
-                switch (playRound(button.id, getComputerChoice)) {
-                    case 0:
-                        
+                let computerSelection = getComputerChoice();
+                switch (playRound(button.id, computerSelection)) {
+                    case 0: // computer wins
+                        comp += 1;
+                        compScore.textContent = comp;
+                        console.log(button.id + ' player');
+                        console.log(computerSelection + ' comp');
+                        break;
+                    case 1: // player wins
+                        player += 1;
+                        playerScore.textContent = player;
+                        console.log(button.id + ' player');
+                        console.log(computerSelection + ' comp');
+                        break;
+                    case 2: // draw
+                        console.log(button.id + ' player');
+                        console.log(computerSelection + ' comp');
+                        break;
                 }
 
             }
         });
     });
-
+    
 };
 
 main()
