@@ -22,16 +22,34 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// waiting for click event from user on any button
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        if (button.id === 'reset') {
-            
-        } else {
-            
-            // play a round of rps
-            playRound(button.id, getComputerChoice)
-        }
+// main function where the game will be played
+function main() {
+    
+    // keeping a track of the score
+    const playerScore = document.querySelector('#playerScore');
+    const compScore = document.querySelector('#compScore');
+    playerScore.textContent = 0;
+    compScore.textContent = 0;
+
+    
+    // waiting for click event from user on any button
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (button.id === 'reset') {
+                // restart game
+                return main();
+            } else {
+                // play a round of rps
+                switch (playRound(button.id, getComputerChoice)) {
+                    case 0:
+                        
+                }
+
+            }
+        });
     });
-});
+
+};
+
+main()
